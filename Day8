@@ -1,0 +1,47 @@
+FCFS Scheduling
+
+First come first serve (FCFS) scheduling algorithm simply schedules the jobs according to their arrival time. 
+The job which comes first in the ready queue will get the CPU first. The lesser the arrival time of the job, the sooner will the job get the CPU. 
+FCFS scheduling may cause the problem of starvation if the burst time of the first process is the longest among all the jobs.
+
+Advantages of FCFS
+Simple
+Easy
+First come, First serv
+
+Disadvantages of FCFS
+The scheduling method is non preemptive, the process will run to the completion.
+Due to the non-preemptive nature of the algorithm, the problem of starvation may occur.
+Although it is easy to implement, but it is poor in performance since the average waiting time is higher as compare to other scheduling algorithms.
+
+
+The Turnaround time and the waiting time are calculated by using the following formula.
+
+Turn Around Time = Completion Time - Arrival Time   
+Waiting Time = Turnaround time - Burst Time   
+The average waiting Time is determined by summing the respective waiting time of all the processes and divided the sum by the total number of processes.
+
+Convoy Effect in FCFS-
+
+FCFS may suffer from the convoy effect if the burst time of the first job is the highest among all.
+As in the real life, if a convoy is passing through the road then the other persons may get blocked until it passes completely. 
+This can be simulated in the Operating System also.
+
+If the CPU gets the processes of the higher burst time at the front end of the ready queue then the processes of lower burst 
+time may get blocked which means they may never get the CPU if the job in the execution has a very high burst time. This is called convoy effect or starvation.
+
+
+Shortest Job First (SJF) Scheduling
+Till now, we were scheduling the processes according to their arrival time (in FCFS scheduling). However, SJF scheduling algorithm,
+schedules the processes according to their burst time.
+
+In SJF scheduling, the process with the lowest burst time, among the list of available processes in the ready queue, is going to be scheduled next.
+However, it is very difficult to predict the burst time needed for a process hence this algorithm is very difficult to implement in the system.
+
+Advantages of SJF
+Maximum throughput
+Minimum average waiting and turnaround time
+
+Disadvantages of SJF
+May suffer with the problem of starvation
+It is not implementable because the exact Burst time for a process can't be known in advance.
