@@ -1,0 +1,80 @@
+Peterson Solution-
+******************************
+
+This is a software mechanism implemented at user mode. It is a busy waiting solution can be implemented for only two processes. 
+It uses two variables that are turn variable and interested variable.
+
+The Code of the solution is given below
+
+# define N 2   
+# define TRUE 1  
+# define FALSE 0   
+int interested[N] = FALSE;  
+int turn;   
+voidEntry_Section (int process)   
+{  
+    int other;   
+    other = 1-process;  
+    interested[process] = TRUE;  
+    turn = process;   
+    while (interested [other] =True && TURN=process);  
+}  
+voidExit_Section (int process)  
+{  
+    interested [process] = FALSE;  
+}  
+Till now, each of our solution is affected by one or the other problem. However, the Peterson solution provides you all
+the necessary requirements such as Mutual Exclusion, Progress, Bounded Waiting and Portability.
+
+Analysis of Peterson Solution
+voidEntry_Section (int process)   
+{  
+    1. int other;   
+    2. other = 1-process;  
+    3. interested[process] = TRUE;  
+    4. turn = process;   
+    5. while (interested [other] =True && TURN=process);  
+}  
+  
+Critical Section   
+  
+voidExit_Section (int process)  
+{  
+    6. interested [process] = FALSE;  
+}  
+This is a two process solution. Let us consider two cooperative processes P1 and P2. The entry section and exit section are shown below. 
+Initially, the value of interested variables and turn variable is 0.
+
+Initially process P1 arrives and wants to enter into the critical section. It sets its interested variable to True (instruction line 3) 
+and also sets turn to 1 (line number 4). Since the condition given in line number 5 is completely satisfied by P1 therefore it will enter in the critical section.
+
+P1 → 1 2 3 4 5 CS   
+Meanwhile, Process P1 got preempted and process P2 got scheduled. P2 also wants to enter in the critical section and executes 
+instructions 1, 2, 3 and 4 of entry section. On instruction 5, it got stuck since it doesn't satisfy the condition (value of other interested variable is still true).
+Therefore it gets into the busy waiting.
+
+P2 → 1 2 3 4 5   
+P1 again got scheduled and finish the critical section by executing the instruction no. 6 (setting interested variable to false). 
+Now if P2 checks then it are going to satisfy the condition since other process's interested variable becomes false. P2 will also get enter the critical section.
+
+P1 → 6   
+P2 → 5 CS  
+Any of the process may enter in the critical section for multiple numbers of times. Hence the procedure occurs in the cyclic order.
+
+Mutual Exclusion
+The method provides mutual exclusion for sure. In entry section, the while condition involves the criteria for two variables therefore
+a process cannot enter in the critical section until the other process is interested and the process is the last one to update turn variable.
+
+Progress
+An uninterested process will never stop the other interested process from entering in the critical section. If the other process is also interested 
+then the process will wait.
+
+Bounded waiting
+The interested variable mechanism failed because it was not providing bounded waiting. However, in Peterson solution, A deadlock can never happen
+because the process which first sets the turn variable will enter in the critical section for sure. Therefore, if a process is preempted after executing line 
+number 4 of the entry section then it will definitely get into the critical section in its next chance.
+
+Portability
+This is the complete software solution and therefore it is portable on every hardware.
+
+
