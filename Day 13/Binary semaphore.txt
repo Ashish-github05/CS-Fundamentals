@@ -1,0 +1,43 @@
+Binary Semaphore or Mutex
+In counting semaphore, Mutual exclusion was not provided because we has the set of processes which required to execute in the critical section simultaneously.
+
+However, Binary Semaphore strictly provides mutual exclusion. Here, instead of having more than 1 slots available in the critical section, we can only have at most 1 process in the critical section. The semaphore can have only two values, 0 or 1.
+
+Let's see the programming implementation of Binary Semaphore.
+
+
+StructBsemaphore  
+{  
+    enum Value(0,1); //value is enumerated data type which can only have two values 0 or 1.  
+    Queue type L;  
+}  
+/* L contains all PCBs corresponding to process   
+Blocked while processing down operation unsuccessfully.   
+*/   
+Down (Bsemaphore S)   
+{  
+    if (s.value == 1) // if a slot is available in the   
+    //critical section then let the process enter in the queue.   
+    {  
+        S.value = 0; // initialize the value to 0 so that no other process can read it as 1.   
+    }  
+    else  
+    {  
+        put the process (PCB) in S.L; //if no slot is available   
+        //then let the process wait in the blocked queue.   
+        sleep();   
+    }  
+}  
+Up (Bsemaphore S)   
+{  
+    if (S.L is empty) //an empty blocked processes list implies that no process   
+    //has ever tried to get enter in the critical section.   
+    {  
+        S.Value =1;   
+    }  
+    else  
+    {  
+        Select a process from S.L;   
+        Wakeup(); // if it is not empty then wake the first process of the blocked queue.   
+    }   
+}  
