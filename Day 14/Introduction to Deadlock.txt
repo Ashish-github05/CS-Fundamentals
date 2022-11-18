@@ -1,0 +1,53 @@
+Introduction to Deadlock-
+******************************************
+A Deadlock is a situation where each of the computer process waits for a resource which is being assigned to some another process.
+In this situation, none of the process gets executed since the resource it needs, is held by some other process which is also
+waiting for some other resource to be released.
+
+Necessary conditions for Deadlocks-
+******************************************
+Mutual Exclusion
+A resource can only be shared in mutually exclusive manner. It implies, if two process cannot use the same resource at the same time.
+
+Hold and Wait
+A process waits for some resources while holding another resource at the same time.
+
+No preemption
+The process which once scheduled will be executed till the completion. No other process can be scheduled by the scheduler meanwhile.
+
+Circular Wait
+All the processes must be waiting for the resources in a cyclic manner so that the last process is waiting for the resource
+ which is being held by the first process.
+
+
+Strategies for handling Deadlock
+1. Deadlock Ignorance
+Deadlock Ignorance is the most widely used approach among all the mechanism. This is being used by many operating systems mainly for end user uses. 
+In this approach, the Operating system assumes that deadlock never occurs. It simply ignores deadlock.
+ This approach is best suitable for a single end user system where User uses the system only for browsing and all other normal stuff.
+
+There is always a tradeoff between Correctness and performance. The operating systems like Windows and Linux mainly focus upon performance. 
+However, the performance of the system decreases if it uses deadlock handling mechanism all the time if deadlock happens 1 out of 100 times then
+ it is completely unnecessary to use the deadlock handling mechanism all the time.
+
+In these types of systems, the user has to simply restart the computer in the case of deadlock. Windows and Linux are mainly using this approach.
+
+2. Deadlock prevention
+Deadlock happens only when Mutual Exclusion, hold and wait, No preemption and circular wait holds simultaneously.
+ If it is possible to violate one of the four conditions at any time then the deadlock can never occur in the system.
+
+The idea behind the approach is very simple that we have to fail one of the four conditions but there can be a big argument on its physical implementation in the system.
+
+We will discuss it later in detail.
+
+3. Deadlock avoidance
+In deadlock avoidance, the operating system checks whether the system is in safe state or in unsafe state at every step which the operating system performs. 
+The process continues until the system is in safe state. Once the system moves to unsafe state, the OS has to backtrack one step.
+
+In simple words, The OS reviews each allocation so that the allocation doesn't cause the deadlock in the system.
+
+We will discuss Deadlock avoidance later in detail.
+
+4. Deadlock detection and recovery
+This approach let the processes fall in deadlock and then periodically check whether deadlock occur in the system or not. 
+If it occurs then it applies some of the recovery methods to the system to get rid of deadlock.
