@@ -1,0 +1,24 @@
+Deadlock Avoidance
+******************************
+In deadlock avoidance, the request for any resource will be granted if the resulting state of the system doesn't cause deadlock in the system. 
+The state of the system will continuously be checked for safe and unsafe states.
+
+In order to avoid deadlocks, the process must tell OS, the maximum number of resources a process can request to complete its execution.
+
+The simplest and most useful approach states that the process should declare the maximum number of resources of each type it may ever need. 
+The Deadlock avoidance algorithm examines the resource allocations so that there can never be a circular wait condition.
+
+Safe and Unsafe States
+
+The resource allocation state of a system can be defined by the instances of available and allocated resources, 
+and the maximum instance of the resources demanded by the processes.
+
+Resource Allocation Graph--
+***********************************
+The resource allocation graph is the pictorial representation of the state of a system. As its name suggests, 
+the resource allocation graph is the complete information about all the processes which are holding some resources or 
+waiting for some resources.
+
+It also contains the information about all the instances of all the resources whether they are available or being used by the processes.
+
+In Resource allocation graph, the process is represented by a Circle while the Resource is represented by a rectangle. 
