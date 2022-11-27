@@ -1,0 +1,41 @@
+Mapping from page table to main memory
+In operating systems, there is always a requirement of mapping from logical address to the physical address.
+ However, this process involves various steps which are defined as follows.
+
+1. Generation of logical address
+CPU generates logical address for each page of the process. This contains two parts: page number and offset.
+
+2. Scaling
+To determine the actual page number of the process, CPU stores the page table base in a special register.
+Each time the address is generated, the value of the page table base is added to the page number to get the actual location of the page entry in the table. 
+This process is called scaling.
+
+3. Generation of physical Address
+The frame number of the desired page is determined by its entry in the page table.
+ A physical address is generated which also contains two parts : frame number and offset. The Offset will be similar to the offset of the logical address therefore it will be copied from the logical address.
+
+4. Getting Actual Frame Number
+The frame number and the offset from the physical address is mapped to the main memory in order to get the actual word address.
+
+Page Table Entry
+Along with page frame number, the page table also contains some of the bits representing the extra information regarding the page.
+
+Let's see what the each bit represents about the page.
+
+1. Caching Disabled
+Sometimes, there are differences between the information closest to the CPU and the information closest to the user. Operating system always wants CPU to access user's data as soon as possible. CPU accesses cache which can be inaccurate in some of the cases, therefore, OS can disable the cache for the required pages. This bit is set to 1 if the cache is disabled.
+
+2. Referenced
+There are variouspage replacement algorithms which will be covered later in this tutorial. This bit is set to 1 if the page is referred in the last clock cycle otherwise it remains 0.
+
+3. Modified
+This bit will be set if the page has been modified otherwise it remains 0.
+
+4. Protection
+The protection field represents the protection level which is applied on the page. It can be read only or read & write or execute. We need to remember that it is not a bit rather it is a field which contains many bits.
+
+5. Present/Absent
+In the concept of demand paging, all the pages doesn't need to be present in the main memory Therefore, for all the pages that are present in the main memory, this bit will be set to 1 and the bit will be 0 for all the pages which are absent.
+
+If some page is not present in the main memory then it is called page fault.
+
