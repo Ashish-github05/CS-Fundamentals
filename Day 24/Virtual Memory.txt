@@ -1,0 +1,41 @@
+Virtual Memory
+Virtual Memory is a storage scheme that provides user an illusion of having a very big main memory. 
+This is done by treating a part of secondary memory as the main memory.
+
+In this scheme, User can load the bigger size processes than the available main memory by having the illusion that the memory is available to load the process.
+
+Instead of loading one big process in the main memory, the Operating System loads the different parts of more than one process in the main memory.
+
+By doing this, the degree of multiprogramming will be increased and therefore, the CPU utilization will also be increased.
+
+How Virtual Memory Works?
+In modern word, virtual memory has become quite common these days. In this scheme, whenever some pages needs to be loaded in the main memory for the execution and the memory is not available for those many pages, then in that case, instead of stopping the pages from entering in the main memory, the OS search for the RAM area that are least used in the recent times or that are not referenced and copy that into the secondary memory to make the space for the new pages in the main memory.
+
+Since all this procedure happens automatically, therefore it makes the computer feel like it is having the unlimited RAM.
+
+Demand Paging
+Demand Paging is a popular method of virtual memory management. In demand paging, the pages of a process which are least used, get stored in the secondary memory.
+
+A page is copied to the main memory when its demand is made or page fault occurs. There are various page replacement algorithms which are used to determine the pages which will be replaced.
+
+
+Snapshot of a virtual memory management system
+Let us assume 2 processes, P1 and P2, contains 4 pages each. Each page size is 1 KB. The main memory contains 8 frame of 1 KB each. 
+The OS resides in the first two partitions. In the third partition, 1st page of P1 is stored and the other frames are also shown as filled with the different pages of processes in the main memory.
+
+The page tables of both the pages are 1 KB size each and therefore they can be fit in one frame each. The page tables of both the processes contain various information that is also shown in the image.
+
+The CPU contains a register which contains the base address of page table that is 5 in the case of P1 and 7 in the case of P2. This page table base address will be added to the page number of the Logical address when it comes to accessing the actual corresponding entry.
+
+Virtual Memory--
+
+Advantages of Virtual Memory
+The degree of Multiprogramming will be increased.
+User can run large application with less real RAM.
+There is no need to buy more memory RAMs.
+
+Disadvantages of Virtual Memory
+The system becomes slower since swapping takes time.
+It takes more time in switching between applications.
+The user will have the lesser hard disk space for its use.
+
