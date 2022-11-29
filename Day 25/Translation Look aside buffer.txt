@@ -1,0 +1,53 @@
+Translation Look aside buffer--
+
+Drawbacks of Paging
+Size of Page table can be very big and therefore it wastes main memory.
+CPU will take more time to read a single word from the main memory.
+
+How to decrease the page table size
+The page table size can be decreased by increasing the page size but it will cause internal fragmentation and there will also be page wastage.
+Other way is to use multilevel paging but that increases the effective access time therefore this is not a practical approach.
+
+How to decrease the effective access time
+CPU can use a register having the page table stored inside it so that the access time to access page table can 
+become quite less but the register are not cheaper and they are very small in compare to the page table size therefore, 
+this is also not a practical approach.
+
+To overcome these many drawbacks in paging, we have to look for a memory that is cheaper than the register and faster than the main memory so that the time taken by the
+CPU to access page table again and again can be reduced and it can only focus to access the actual word.
+
+Locality of reference
+In operating systems, the concept of locality of reference states that, instead of loading the entire process in the main memory,
+OS can load only those number of pages in the main memory that are frequently accessed by the CPU and along with that, the OS can also load only those page
+table entries which are corresponding to those many pages.
+
+Translation look aside buffer (TLB)
+A Translation look aside buffer can be defined as a memory cache which can be used to reduce the time taken to access the page table again and again.
+
+It is a memory cache which is closer to the CPU and the time taken by CPU to access TLB is lesser then that taken to access main memory.
+
+In other words, we can say that TLB is faster and smaller than the main memory but cheaper and bigger than the register.
+
+TLB follows the concept of locality of reference which means that it contains only the entries of those many pages that are frequently accessed by the CPU.
+
+
+OS Translation Look aside buffer
+In translation look aside buffers, there are tags and keys with the help of which, the mapping is done.
+
+TLB hit is a condition where the desired entry is found in translation look aside buffer. If this happens then the CPU simply access the actual location in the main memory.
+
+However, if the entry is not found in TLB (TLB miss) then CPU has to access page table in the main memory and then access the actual frame in the main memory.
+
+Therefore, in the case of TLB hit, the effective access time will be lesser as compare to the case of TLB miss.
+
+If the probability of TLB hit is P% (TLB hit rate) then the probability of TLB miss (TLB miss rate) will be (1-P) %.
+
+Therefore, the effective access time can be defined as;
+
+EAT = P (t + m) + (1 - p) (t + k.m + m)  
+Where, p → TLB hit rate, t → time taken to access TLB, m → time taken to access main memory k = 1, if the single level paging has been implemented.
+
+By the formula, we come to know that
+
+Effective access time will be decreased if the TLB hit rate is increased.
+Effective access time will be increased in the case of multilevel paging.
