@@ -1,0 +1,31 @@
+Page Replacement Algorithms
+The page replacement algorithm decides which memory page is to be replaced. The process of replacement is sometimes called swap out or write to disk. 
+Page replacement is done when the requested page is not found in the main memory (page fault).
+
+Page Replacement Algorithms
+There are two main aspects of virtual memory, Frame allocation and Page Replacement. 
+It is very important to have the optimal frame allocation and page replacement algorithm.
+Frame allocation is all about how many frames are to be allocated to the process while the page replacement is all about determining the page number which needs to be replaced in order to make space for the requested page.
+
+What If the algorithm is not optimal?
+1. if the number of frames which are allocated to a process is not sufficient or accurate then there can be a problem of thrashing. 
+Due to the lack of frames, most of the pages will be residing in the main memory and therefore more page faults will occur.
+
+However, if OS allocates more frames to the process then there can be internal fragmentation.
+
+2. If the page replacement algorithm is not optimal then there will also be the problem of thrashing. 
+If the number of pages that are replaced by the requested pages will be referred in the near future then there will be more number of swap-in and swap-out and therefore the OS has to perform more replacements then usual which causes performance deficiency.
+
+Therefore, the task of an optimal page replacement algorithm is to choose the page which can limit the thrashing.
+
+Types of Page Replacement Algorithms
+There are various page replacement algorithms. Each algorithm has a different method by which the pages can be replaced.
+
+Optimal Page Replacement algorithm → this algorithms replaces the page which will not be referred for so long in future. 
+Although it can not be practically implementable but it can be used as a benchmark. Other algorithms are compared to this in terms of optimality.
+
+Least recent used (LRU) page replacement algorithm → this algorithm replaces the page which has not been referred for a long time. 
+This algorithm is just opposite to the optimal page replacement algorithm. In this, we look at the past instead of staring at future.
+
+FIFO → in this algorithm, a queue is maintained. The page which is assigned the frame first will be replaced first.
+ In other words, the page which resides at the rare end of the queue will be replaced on the every page fault.
