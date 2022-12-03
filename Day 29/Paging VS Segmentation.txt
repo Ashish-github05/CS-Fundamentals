@@ -1,0 +1,14 @@
+Paging VS Segmentation
+
+Sr No.	Paging	                                        Segmentation
+1	Non-Contiguous memory allocation	        Non-contiguous memory allocation
+2	Paging divides program into fixed size pages.	Segmentation divides program into variable size segments.
+3	OS is responsible	                        Compiler is responsible.
+4	Paging is faster than segmentation	        Segmentation is slower than paging
+5	Paging is closer to Operating System	        Segmentation is closer to User
+6	It suffers from internal fragmentation	        It suffers from external fragmentation
+7	There is no external fragmentation	        There is no external fragmentation
+8	Logical address is divided into page number and page offset	Logical address is divided into segment number and segment offset
+9	Page table is used to maintain the page information.	        Segment Table maintains the segment information
+10	Page table entry has the frame number and some flag bits to represent details about pages.	Segment table entry has the base address of the segment and some protection bits for the segments.
+
