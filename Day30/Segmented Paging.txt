@@ -1,0 +1,39 @@
+Segmented Paging
+Pure segmentation is not very popular and not being used in many of the operating systems. However, Segmentation can be combined with Paging to get the best features out of both the techniques.
+
+In Segmented Paging, the main memory is divided into variable size segments which are further divided into fixed size pages.
+
+Pages are smaller than segments.
+Each Segment has a page table which means every program has multiple page tables.
+The logical address is represented as Segment Number (base address), Page number and page offset.
+Segment Number → It points to the appropriate Segment Number.
+
+Page Number → It Points to the exact page within the segment
+
+Page Offset → Used as an offset within the page frame
+
+Each Page table contains the various information about every page of the segment. 
+The Segment Table contains the information about every segment. Each segment table entry points to a page table entry and every page table entry is mapped to one of the page within a segment.
+
+
+os Segmented Paging
+Translation of logical address to physical address
+The CPU generates a logical address which is divided into two parts: Segment Number and Segment Offset. The Segment Offset must be less than the segment limit. Offset is further divided into Page number and Page Offset. 
+To map the exact page number in the page table, the page number is added into the page table base.
+
+The actual frame number with the page offset is mapped to the main memory to get the desired word in the page of the certain segment of the process.
+
+
+Segmented Paging************
+Advantages of Segmented Paging---
+It reduces memory usage.
+Page table size is limited by the segment size.
+Segment table has only one entry corresponding to one actual segment.
+External Fragmentation is not there.
+It simplifies memory allocation.
+
+Disadvantages of Segmented Paging----
+Internal Fragmentation will be there.
+The complexity level will be much higher as compare to paging.
+Page Tables need to be contiguously stored in the memory.
+
