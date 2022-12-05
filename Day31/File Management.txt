@@ -1,0 +1,79 @@
+What is a File ?
+A file can be defined as a data structure which stores the sequence of records. Files are stored in a file system, which may exist on a disk or in the main memory. Files can be simple (plain text) or complex (specially-formatted).
+
+The collection of files is known as Directory. The collection of directories at the different levels, is known as File System.
+
+File Management
+Attributes of the File
+1.Name
+
+Every file carries a name by which the file is recognized in the file system. One directory cannot have two files with the same name.
+
+2.Identifier
+
+Along with the name, Each File has its own extension which identifies the type of the file. For example, a text file has the extension .txt, A video file can have the extension .mp4.
+
+3.Type
+
+In a File System, the Files are classified in different types such as video files, audio files, text files, executable files, etc.
+
+4.Location
+
+In the File System, there are several locations on which, the files can be stored. Each file carries its location as its attribute.
+
+5.Size
+
+The Size of the File is one of its most important attribute. By size of the file, we mean the number of bytes acquired by the file in the memory.
+
+6.Protection
+
+The Admin of the computer may want the different protections for the different files. Therefore each file carries its own set of permissions to the different group of Users.
+
+7.Time and Date
+
+Every file carries a time stamp which contains the time and date on which the file is last modified.
+
+
+Operations on the File
+A file is a collection of logically related data that is recorded on the secondary storage in the form of sequence of operations. The content of the files are defined by its creator who is creating the file. The various operations which can be implemented on a file such as read, write, open and close etc. are called file operations. These operations are performed by the user by using the commands provided by the operating system. Some common operations are as follows:
+
+Operations on the File
+1.Create operation:
+
+This operation is used to create a file in the file system. It is the most widely used operation performed on the file system. To create a new file of a particular type the associated application program calls the file system. This file system allocates space to the file. As the file system knows the format of directory structure, so entry of this new file is made into the appropriate directory.
+
+2. Open operation:
+
+This operation is the common operation performed on the file. Once the file is created, it must be opened before performing the file processing operations. When the user wants to open a file, it provides a file name to open the particular file in the file system. It tells the operating system to invoke the open system call and passes the file name to the file system.
+
+3. Write operation:
+
+This operation is used to write the information into a file. A system call write is issued that specifies the name of the file and the length of the data has to be written to the file. Whenever the file length is increased by specified value and the file pointer is repositioned after the last byte written.
+
+4. Read operation:
+
+This operation reads the contents from a file. A Read pointer is maintained by the OS, pointing to the position up to which the data has been read.
+
+5. Re-position or Seek operation:
+
+The seek system call re-positions the file pointers from the current position to a specific place in the file i.e. forward or backward depending upon the user's requirement. This operation is generally performed with those file management systems that support direct access files.
+
+6. Delete operation:
+
+Deleting the file will not only delete all the data stored inside the file it is also used so that disk space occupied by it is freed. In order to delete the specified file the directory is searched. When the directory entry is located, all the associated file space and the directory entry is released.
+
+7. Truncate operation:
+
+Truncating is simply deleting the file except deleting attributes. The file is not completely deleted although the information stored inside the file gets replaced.
+
+8. Close operation:
+
+When the processing of the file is complete, it should be closed so that all the changes made permanent and all the resources occupied should be released. On closing it deallocates all the internal descriptors that were created when the file was opened.
+
+9. Append operation:
+
+This operation adds data to the end of the file.
+
+10. Rename operation:
+
+This operation is used to rename the existing file.
