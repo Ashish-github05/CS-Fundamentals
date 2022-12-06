@@ -1,0 +1,25 @@
+File Access Methods
+
+Sequential Access
+
+os File Access Methods
+Most of the operating systems access the file sequentially. In other words, we can say that most of the files need to be accessed sequentially by the operating system.
+
+In sequential access, the OS read the file word by word. A pointer is maintained which initially points to the base address of the file. 
+If the user wants to read first word of the file then the pointer provides that word to the user and increases its value by 1 word. This process continues till the end of the file.
+
+Modern word systems do provide the concept of direct access and indexed access but the most used method is sequential access due to the fact that most of the files such as text files, audio files, video files, etc need to be sequentially accessed.
+
+Direct Access
+The Direct Access is mostly required in the case of database systems. In most of the cases, we need filtered information from the database. The sequential access can be very slow and inefficient in such cases.
+
+Suppose every block of the storage stores 4 records and we know that the record we needed is stored in 10th block. 
+In that case, the sequential access will not be implemented because it will traverse all the blocks in order to access the needed record.
+
+Direct access will give the required result despite of the fact that the operating system has to perform some complex tasks such as determining the desired block number. However, that is generally implemented in database applications.
+
+Indexed Access
+If a file can be sorted on any of the filed then an index can be assigned to a group of certain records. However, A particular record can be accessed by its index. 
+The index is nothing but the address of a record in the file.
+
+In index accessing, searching in a large database became very quick and easy but we need to have some extra space in the memory to store the index value.
